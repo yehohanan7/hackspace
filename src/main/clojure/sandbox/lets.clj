@@ -1,4 +1,4 @@
-(ns com.hackspace.sandbox.lets)
+(ns sandbox.lets)
 
 (defn area [radius]
   (let [pi 3.14

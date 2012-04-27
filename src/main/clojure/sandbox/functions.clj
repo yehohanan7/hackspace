@@ -1,4 +1,4 @@
-(ns com.hackspace.sandbox.functions)
+(ns sandbox.functions)
 
 (println ((fn [e1 e2]
               #{e1 e2}

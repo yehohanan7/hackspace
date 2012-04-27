@@ -1,4 +1,4 @@
-(ns com.hackspace.sandbox.blocks)
+(ns sandbox.blocks)
 
 (def x 5)
 

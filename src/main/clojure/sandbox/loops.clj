@@ -1,4 +1,4 @@
-(ns com.hackspace.sandbox.loops)
+(ns sandbox.loops)
 
 (defn print-down-from [x]
   (when (pos? x)

@@ -1,4 +1,4 @@
-(ns com.hackspace.sandbox.sandbox.javatester)
+(ns sandbox.javatester)
 
 (println (Math/sqrt  3))
 

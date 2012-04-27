@@ -1,4 +1,4 @@
-(ns com.hackspace.simplethread)
+(ns sandbox.simplethread)
 
 (def x 55)
 
