@@ -1,0 +1,2 @@
+(defproject hackspace "1.0.0-SNAPSHOT" :description "hack space" :dependencies [[org.clojure/clojure "1.4.0"]
+                                                                                [http.async.client "0.4.4"]])
