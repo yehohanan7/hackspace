@@ -4,7 +4,7 @@
   )
 
 (deftest should-construct-authorization-url
-  (is (false (nil? (fetch-authorization-url))))
+  (is (false (nil? (fetch-authorization-url consumerkey consumersecret))))
   )
 
 
