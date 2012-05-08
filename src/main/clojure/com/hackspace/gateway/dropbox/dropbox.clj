@@ -34,16 +34,18 @@
   (if (and (nil? (:access-key user)) (nil? (:access-secret user)))
     :new-user :authorized-user ))
 
-(defmulti init usertype)
+(defmulti welcome-user usertype)
 
-(defmethod init :new-user [user]
+(defmethod welcome-user :new-user [user]
   (println "Trying to connect to dropbox assuming you to be a new hackspace user...")
-  (def dropbox (construct-operations (oauth/get-api user)))
   )
 
-(defmethod init :authorized-user [user]
+(defmethod welcome-user :authorized-user [user]
   (println "welcome back to hackspace, connecting to dropbox...")
-  (def dropbox (construct-operations (oauth/get-api user)))
   )
 
+(defn init [user]
+  (welcome-user user)
+  (def dropbox (construct-operations (oauth/get-api user)))
+  )
 
