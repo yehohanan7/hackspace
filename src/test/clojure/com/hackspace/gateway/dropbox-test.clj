@@ -4,8 +4,8 @@
 
 (require '(com.hackspace.gateway.dropbox [dropbox :as dropbox]))
 
-(def access-token "")
-(def access-secret "")
+(def access-token "lkj")
+(def access-secret "lk")
 
 (deftest should-fetch-accountdetails []
   (let
