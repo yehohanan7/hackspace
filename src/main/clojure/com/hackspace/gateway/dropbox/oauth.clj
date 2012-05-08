@@ -6,6 +6,12 @@
 (def consumerkey "")
 (def consumersecret "")
 
+(defn open-session [consumer-key consumer-secret]
+  (WebAuthSession. (AppKeyPair. consumer-key consumer-secret) (Session$AccessType/DROPBOX))
+  )
+
+
+;;*************************** session initializer *************************
 
 (defn user-authorized? []
   (loop [_ (println "Have you authorized the app to access your data?")
@@ -17,21 +23,23 @@
   )
 
 
-(defn open-session [consumer-key consumer-secret]
-  (WebAuthSession. (AppKeyPair. consumer-key consumer-secret) (Session$AccessType/DROPBOX))
-  )
+(defn usertype [user]
+  (if (and (nil? (:access-key user)) (nil? (:access-secret user)))
+    :new-user :authorized-user ))
 
-(defn re-bind-a-session [access-key access-secret]
+(defmulti get-session usertype)
+
+(defmethod get-session :authorized-user [user]
   (let
     [session (open-session consumerkey consumersecret)
-     access-token-pair (AccessTokenPair. access-key access-secret)
+     access-token-pair (AccessTokenPair. (:access-token user) (:access-secret user))
      ]
     (.setAccessTokenPair session access-token-pair)
     session
     )
   )
 
-(defn oauth-a-session []
+(defmethod get-session :new-user [user]
   (let
     [session (open-session consumerkey consumersecret)
      auth-info (.getAuthInfo session)
@@ -44,18 +52,10 @@
     )
   )
 
-(defn get-session
-  ([] (oauth-a-session))
-  ([access-key access-secret] (re-bind-a-session access-key access-secret))
+;;************* end of session initializer ***********************
+
+
+(defn get-api [user]
+  (DropboxAPI. (get-session user))
   )
 
-(defn get-api
-  ([] (DropboxAPI. (get-session)))
-  ([access-key access-secret]
-    (DropboxAPI. (get-session access-key access-secret))
-    )
-  )
-
-
-;;(println (. session (getAccessTokenPair) (key)))
-;;(println (. session (getAccessTokenPair) (secret)))

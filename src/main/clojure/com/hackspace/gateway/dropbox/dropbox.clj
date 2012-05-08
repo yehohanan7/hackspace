@@ -19,13 +19,31 @@
   {:api api :account-info #(account-info api)}
   )
 
-(defn init
-  ([] (def dropbox (construct-operations (oauth/get-api))))
-  ([token secret] (def dropbox (construct-operations (oauth/get-api token secret))))
-  )
-
 (defn account-details []
   {:pre [(false? (nil? dropbox))]}
   ((:account-info dropbox))
   )
+
+(defn usertype [user]
+  (if (and (nil? (:access-key user)) (nil? (:access-secret user)))
+    :new-user :authorized-user ))
+
+
+;;**************** drop box initializer *************************
+(defn usertype [user]
+  (if (and (nil? (:access-key user)) (nil? (:access-secret user)))
+    :new-user :authorized-user ))
+
+(defmulti init usertype)
+
+(defmethod init :new-user [user]
+  (println "Trying to connect to dropbox assuming you to be a new hackspace user...")
+  (def dropbox (construct-operations (oauth/get-api user)))
+  )
+
+(defmethod init :authorized-user [user]
+  (println "welcome back to hackspace, connecting to dropbox...")
+  (def dropbox (construct-operations (oauth/get-api user)))
+  )
+
 

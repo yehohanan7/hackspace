@@ -7,12 +7,21 @@
 (def access-token "")
 (def access-secret "")
 
-(deftest should-fetch-accountdetails[]
+(deftest should-fetch-accountdetails []
   (let
-    [_ (dropbox/init access-token access-secret)
+    [_ (dropbox/init {:access-token access-token :access-secret access-secret})
      account-details (dropbox/account-details)]
+     (println account-details)
     (is (= "John Pradeep" (:display-name account-details)))
     )
 
   )
 
+
+(defn tester []
+  (let [_ (dropbox/init {:access-token access-token :access-secret access-secret })]
+    (println (dropbox/account-details))
+    )
+  )
+
+(tester)
