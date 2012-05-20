@@ -3,8 +3,8 @@
 (import '(com.dropbox.client2.session AppKeyPair Session WebAuthSession RequestTokenPair Session$AccessType AccessTokenPair))
 (import '(com.dropbox.client2 DropboxAPI))
 
-(def consumerkey "")
-(def consumersecret "")
+(def consumerkey "ny5yv5yow0yfqwr")
+(def consumersecret "q5oemkk7d2muvxp")
 
 (defn open-session [consumer-key consumer-secret]
   (WebAuthSession. (AppKeyPair. consumer-key consumer-secret) (Session$AccessType/DROPBOX))
