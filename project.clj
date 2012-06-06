@@ -8,4 +8,5 @@
                  [com.dropbox/json_simple "1.1"]
                  ]
   :source-paths ["src"]
-  :test-paths ["test"])
+  :test-paths ["test"]
+  :main com.hackspace.main)
