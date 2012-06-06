@@ -1,4 +1,5 @@
-(ns com.hackspace.gateway.dropbox.dropbox)
+(ns com.hackspace.gateway.dropbox.dropbox
+  (:gen-class))
 
 (require '(com.hackspace.gateway.dropbox [oauth :as oauth]))
 

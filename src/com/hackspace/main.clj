@@ -1,4 +1,5 @@
-(ns com.hackspace.main)
+(ns com.hackspace.main
+  (:gen-class ))
 
 (require '(com.hackspace.gateway.dropbox [dropbox :as dropbox]))
 (use 'tools.cli)
@@ -6,16 +7,26 @@
 
 
 (let [[options args banner] (cli args
-                              ["-h" "--help" "Displays help." :default false, :flag true]
-                              ["-p" "--provider" "the file hosting provider"]
-                            )
+  ["-h" "--help" "Displays help." :default false, :flag true]
+  ["-p" "--provider" "the file hosting provider"]
+  )
       ]
-    (println options)
+  (println options)
 
   )
 
 
 
+(defn -main [& command_args]
+  (let [[options args banner] (cli command_args
+    ["-h" "--help" "Displays help." :default false, :flag true]
+    ["-p" "--provider" "the file hosting provider"]
+    )]
+
+    (println options)
+
+    )
+  )
 
 
 

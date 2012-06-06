@@ -1,4 +1,5 @@
-(ns com.hackspace.gateway.dropbox.oauth)
+(ns com.hackspace.gateway.dropbox.oauth
+  (:gen-class))
 
 (import '(com.dropbox.client2.session AppKeyPair Session WebAuthSession RequestTokenPair Session$AccessType AccessTokenPair))
 (import '(com.dropbox.client2 DropboxAPI))
