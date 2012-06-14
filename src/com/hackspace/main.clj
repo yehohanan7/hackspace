@@ -3,14 +3,10 @@
   (:gen-class ))
 
 (require '(com.hackspace.gateway.dropbox [dropbox :as dropbox]))
-(require '(com.hackspace.utils [fs :as fs]))
+(require '(com.hackspace [initializer :as initer]))
+(require '(com.hackspace [user :as user]))
 
-
-(defn initialize []
-  (println "trying to initialize hackspace...")
-  (fs/initialize-config-files)
-  )
-
+(def user (user/current-user))
 
 (defn -main [& command_args]
   (let [[options args banner] (cli command_args
@@ -24,13 +20,10 @@
 
     (if (:init options)
       (do
-        (cond (true? (:init options)) (initialize))
+        (cond (true? (:init options)) (initer/initialize))
         )
       )
     )
   )
-
-
-(initialize)
 
 
