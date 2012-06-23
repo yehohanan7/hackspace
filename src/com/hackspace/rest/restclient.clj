@@ -1,4 +1,4 @@
-(ns com.hackspace.gateway.restclient
+(ns com.hackspace.rest.restclient
   (:require [clj-http.client :as http]))
 
 

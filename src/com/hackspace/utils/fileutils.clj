@@ -25,3 +25,12 @@
 (defn read-content [filename]
   (slurp filename)
   )
+
+(defn read-lines [filename]
+  (with-open [fr (reader filename)]
+    (doall (line-seq fr)))
+  )
+
+(defn write-lines [filename & content]
+  (spit filename (apply str (interpose "\n" content)))
+  )

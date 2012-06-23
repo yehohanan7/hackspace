@@ -1,1 +1,0 @@
-(for [x (range 2) y (range 2)] [x y (bit-xor x y)])

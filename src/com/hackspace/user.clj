@@ -4,20 +4,31 @@
 (require 'clojure.string)
 (use 'com.hackspace.constants)
 
-(defn initialize-new-user []
+(defn new-or-existing? []
+  (if (fileutils/exists? user-file) :existing :new)
+  )
+
+(defmulti initialize-user new-or-existing?)
+
+(defmethod initialize-user :new []
   (println "Enter your drop box user id: ")
   (fileutils/create user-file)
   (let [user-id (read-line)]
-    (fileutils/write-content user-id user-file)
+    (fileutils/write-lines user-file user-id)
     {:id user-id}
     )
   )
 
-(defn current-user []
-  (if (fileutils/exists? user-file)
-    (load-string (fileutils/read-content user-file))
-    (initialize-new-user)
+(defmethod initialize-user :existing []
+  (let [[user-id access-token access-secret & others] (fileutils/read-lines)]
+    {:id user-id :access-token access-token :access-secret access-secret}
     )
   )
 
-(println (current-user))
+
+(defn current-user []
+  (initialize-user)
+  )
+
+
+(defn loop-back [i] i)

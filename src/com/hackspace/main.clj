@@ -6,7 +6,7 @@
 (require '(com.hackspace [initializer :as initer]))
 (require '(com.hackspace [user :as user]))
 
-(def user (user/current-user))
+(def hs-context (ref {:hs-user {:id "dummy"}}))
 
 (defn -main [& command_args]
   (let [[options args banner] (cli command_args
@@ -20,7 +20,7 @@
 
     (if (:init options)
       (do
-        (cond (true? (:init options)) (initer/initialize))
+        (cond (true? (:init options)) (initer/initialize hs-context))
         )
       )
     )

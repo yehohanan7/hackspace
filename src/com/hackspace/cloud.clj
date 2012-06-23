@@ -1,3 +1,4 @@
 (ns com.hackspace.cloud)
 
-(defmulti get-account-info)
+(defn get-access [user-id]
+  )
