@@ -1,4 +1,17 @@
 (ns com.hackspace.cloud)
+(use 'com.hackspace.constants)
 
-(defn get-access [user-id]
+(defmulti get-cloud-access #(%))
+
+(defmethod get-access :googledrive []
+
+  )
+
+(defmethod get-access :dropbox []
+
+  )
+
+
+(defn get-access []
+  (mapcat get-access cloud-providers)
   )

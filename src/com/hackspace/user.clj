@@ -29,6 +29,3 @@
 (defn current-user []
   (initialize-user)
   )
-
-
-(defn loop-back [i] i)
