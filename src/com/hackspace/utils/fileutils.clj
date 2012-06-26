@@ -12,6 +12,7 @@
 
 (defn create [filename]
   (.createNewFile (File. filename))
+  filename
   )
 
 (defn write-content [content file]
