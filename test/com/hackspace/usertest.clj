@@ -7,11 +7,11 @@
 (use 'com.hackspace.constants)
 
 
-(fact "should be able to identify the user as a new user or an existing user"
-  (user/new-or-existing?) => :new
-  (provided
-    (fileutils/exists? user-file) => false)
-  )
+;(fact "should be able to identify the user as a new user or an existing user"
+;  (user/new-or-existing?) => :new
+;  (provided
+;    (fileutils/exists? user-file) => false)
+;  )
 
 
 
