@@ -39,3 +39,10 @@
 (defn current-user []
   (initialize-user)
   )
+
+
+(defn get-stats []
+  (let [user (current-user)]
+    (cloud/get-stats user)
+    )
+  )

@@ -22,9 +22,5 @@
     (. consumer setTokenWithSecret token secret)
     (. consumer sign get-request)
     (. http-client execute get-request (new BasicResponseHandler))
-
     )
   )
-
-
-(println (:display_name (http-get "https://api.dropbox.com/1/account/info" "" ""  {})))

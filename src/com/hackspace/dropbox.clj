@@ -3,6 +3,7 @@
 
 (import '(com.dropbox.client2.session AppKeyPair Session WebAuthSession RequestTokenPair Session$AccessType AccessTokenPair))
 (import '(com.dropbox.client2 DropboxAPI))
+(require '(com.hackspace [oauth :as oauth]))
 
 (def consumerkey "ny5yv5yow0yfqwr")
 (def consumersecret "q5oemkk7d2muvxp")
@@ -42,3 +43,7 @@
     )
   )
 
+
+(defn get-stats [user]
+  (oauth/http-get "https://api.dropbox.com/1/account/info" (:access-token user) (:access-secret user) {})
+  )
