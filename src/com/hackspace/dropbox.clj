@@ -47,3 +47,7 @@
 (defn get-stats [user]
   (oauth/http-get "https://api.dropbox.com/1/account/info" (:access-token user) (:access-secret user) {})
   )
+
+(defn list-files [user]
+  (oauth/http-get "https://api.dropbox.com/1/metadata/dropbox" (:access-token user) (:access-secret user) {})
+  )

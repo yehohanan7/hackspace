@@ -11,6 +11,7 @@
                  [clj-http "0.1.3"]
                  [oauth.signpost/signpost-core "1.2.1.2"]
                  [oauth.signpost/signpost-commonshttp4 "1.2.1.2"]
+                 [org.clojure/data.json "0.1.2"]
                  ]
   :dev-dependencies [[midje "1.4.0"]]
   :source-paths ["src"]

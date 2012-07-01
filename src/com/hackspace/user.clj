@@ -46,3 +46,9 @@
     (cloud/get-stats user)
     )
   )
+
+(defn list-files []
+  (let [user (current-user)]
+    (cloud/list-files user)
+    )
+  )
