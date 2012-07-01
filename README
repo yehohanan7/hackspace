@@ -1,18 +1,37 @@
 # my-testing
 
-FIXME: write description
+A command line interface to popular cloud APIs.
 
 ## Usage
 
-FIXME: write
+./setup.sh -> will install all required jars into your local maven repo
+./build.sh -> will build hackspace executable jar
+
+./hs init
+   this command will initialize the local hackspace environment by fetching the access-key/token from the cloud store,
+   this command will also generate a url which you need to access in the browser and authorize hackspace to access your dropbox details.
+   once you are done authorizing, type 'yes' in the command prompt and press enter to complete initialization.
+
+   Note: In future versions, the manual authorization will be removed.
+
+./hs stats
+   Fetches the statistics of your cloud store usage.
+
+./hs ls
+   WIP: Displays all the files in your cloud store.
+
+./hs mv
+   TODO: FIXME
+
+./hs cp
+   TODO: FIXME
+
+./hs rm
+   TODO: FIXME
+
 
 ## License
 
 Copyright (C) 2012 FIXME
 
 Distributed under the Eclipse Public License, the same as Clojure.
-
-
-
-lein uberjar
-java -jar ***.jar
