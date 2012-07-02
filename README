@@ -14,11 +14,20 @@ A command line interface to popular cloud APIs.
 
    Note: In future versions, the manual authorization will be removed.
 
-./hs stats
+./hs -stats
    Fetches the statistics of your cloud store usage.
 
-./hs ls
-   WIP: Displays all the files in your cloud store.
+./hs -ls
+   displays the folders and the corresponding sizes in your root drop box directory
+
+   example:
+   /books                  :0 bytes
+   /Uploads                :0 bytes
+   /Sample.pdf             :240.2 KB
+   /ml                     :0 bytes
+   /Photos                 :0 bytes
+   /Public                 :0 bytes
+
 
 ./hs mv
    TODO: FIXME
