@@ -28,6 +28,13 @@ A command line interface to popular cloud APIs.
    /Photos                 :0 bytes
    /Public                 :0 bytes
 
+./hs -ls books
+    displays all the files with corresponding sizes present in the directory named 'books'
+
+   example output:
+    /test1.pdf   : 1.2MB
+    /book2.pdf   : 2 MB
+
 
 ./hs mv
    TODO: FIXME
