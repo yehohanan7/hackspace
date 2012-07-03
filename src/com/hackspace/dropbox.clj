@@ -51,3 +51,7 @@
 (defn list-files [user directory]
   (oauth/http-get (str "https://api.dropbox.com/1/metadata/dropbox/" directory) (:access-token user) (:access-secret user) {})
   )
+
+(defn get-file [user file]
+  (oauth/http-get (str "https://api-content.dropbox.com/1/files/dropbox/" file) (:access-token user) (:access-secret user) {})
+  )

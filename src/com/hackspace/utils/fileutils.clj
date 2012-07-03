@@ -20,6 +20,7 @@
   )
 
 (defn create-if-not-exists [filename]
+  (println "creating file" filename)
   (.createNewFile (File. filename))
   )
 

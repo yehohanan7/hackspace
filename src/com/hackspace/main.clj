@@ -5,6 +5,7 @@
 (require '(com.hackspace [initializer :as initer]))
 (require '(com.hackspace [user :as user]))
 (require '(com.hackspace [formatter :as formatter]))
+(require '(com.hackspace [handler :as handler]))
 
 (def hs-context (ref {:hs-user {:id "dummy"}}))
 
@@ -14,11 +15,13 @@
     ["-stats" "stats" "stats of your cloud usage" :default false, :flag true]
     ["-ls" "ls" "lists all files in your cloud store" :default false]
     ["-init" "init" "initializes hackspace" :default false, :flag true]
+    ["-get" "meta" "downloads a file" :default false]
     )]
     (when (:help options)
       (println banner)
       (System/exit 0))
 
+    (println options)
     (if (:init options)
       (do
         (cond (true? (:init options)) (initer/initialize hs-context))
@@ -32,7 +35,14 @@
       (println "your cloud store summary")
       (println (formatter/display (user/list-files (:ls options)) :ls ))
       )
+
+    (when (not (false? (:get options)))
+      (let [file-name (:get options)]
+        (handler/handle :get (user/get-file file-name) file-name)
+        )
+      )
     )
+
   )
 
 

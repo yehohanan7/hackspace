@@ -52,3 +52,10 @@
     (cloud/list-files user directory)
     )
   )
+
+
+(defn get-file [file]
+  (let [user (current-user)]
+    (cloud/get-file user file)
+    )
+  )
