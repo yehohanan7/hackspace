@@ -47,8 +47,8 @@
     )
   )
 
-(defn list-files []
+(defn list-files [directory]
   (let [user (current-user)]
-    (cloud/list-files user)
+    (cloud/list-files user directory)
     )
   )

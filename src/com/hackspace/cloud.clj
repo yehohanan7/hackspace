@@ -16,6 +16,10 @@
   (read-json (dropbox/get-stats user))
   )
 
-(defn list-files [user]
-  (read-json (dropbox/list-files user))
+
+(defn list-files [user directory]
+  (letfn [(clean [input] (if (= '\/ (first input)) (apply str (rest input)) input))]
+    (let [directory-to-query (if (nil? directory) "" (clean directory))]
+      (read-json (dropbox/list-files user directory-to-query)))
+    )
   )
