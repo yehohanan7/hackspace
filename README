@@ -32,8 +32,11 @@ A command line interface to popular cloud APIs.
     displays all the files with corresponding sizes present in the directory named 'books'
 
    example output:
-    /test1.pdf   : 1.2MB
+    /test1.txt   : 1.2MB
     /book2.pdf   : 2 MB
+
+./hs -get books/test1.txt
+    Downloads the file into the current directory.
 
 
 ./hs mv
