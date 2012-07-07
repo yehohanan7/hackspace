@@ -1,0 +1,7 @@
+lein swank
+
+M-x paredit-mode
+M-x slime-connect
+
+
+
