@@ -12,4 +12,7 @@
 
 reduce (fn [x y] (inc x)) 0
 
+(println "testing my aquamacs")
+
+
 

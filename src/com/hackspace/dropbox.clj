@@ -10,7 +10,7 @@
 
 
 (defn user-authorized? []
-  (loop [_ (println "Have you authorized the app to access your data?")
+  (loop [_ (println "Have you authorized the app to access your data?(yes/no)")
          user-input (read-line)]
     (if (= user-input "yes")
       'true
@@ -21,6 +21,7 @@
 (defn open-session [consumer-key consumer-secret]
   (WebAuthSession. (AppKeyPair. consumer-key consumer-secret) (Session$AccessType/DROPBOX))
   )
+
 
 (defn get-access-keys [user-name]
   (let
@@ -55,3 +56,7 @@
 (defn get-file [user file]
   (oauth/http-get (str "https://api-content.dropbox.com/1/files/dropbox/" file) (:access-token user) (:access-secret user) {})
   )
+
+(def supported-operations {:get-access get-access :get-stats get-stats :list-files list-files :get-file get-file})
+
+(def api {:name "dropbox" :user-file "hs.db.user" :operations supported-operations})

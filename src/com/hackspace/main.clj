@@ -24,7 +24,7 @@
     (println options)
     (if (:init options)
       (do
-        (cond (true? (:init options)) (initer/initialize hs-context))
+        (cond (true? (:init options)) (initer/initialize))
         )
       )
     (when (:stats options)
