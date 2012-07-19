@@ -54,3 +54,10 @@ A command line interface to popular cloud APIs.
 Copyright (C) 2012 FIXME
 
 Distributed under the Eclipse Public License, the same as Clojure.
+
+
+->lein swank
+->midje-mode
+->slime-connect
+->^C C-L
+->^C ,
